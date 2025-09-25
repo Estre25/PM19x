@@ -24,3 +24,22 @@ verificarUsuario("admin")
 verificarUsuario("Ivan")
 .then(res => console.log(res))
 .catch(err => console.error(err));
+
+function simularPeticionAPI()
+{
+    return new Promise(resolve => 
+    {
+        setTimeout(() =>
+        {
+            resolve("Datos recibidos correctamente");
+        }, 5000);
+    }
+    );
+}
+async function obtenerDatos()
+{
+    console.log("Esperando datos...");
+    const datos = await simularPeticionAPI();
+    console.log(datos);
+}
+obtenerDatos();
